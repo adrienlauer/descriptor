@@ -121,8 +121,6 @@ type (
 		// The provider used to create the node set and its settings
 		Provider yamlProviderRef
 		// The orchestrator settings for this node set
-		Orchestrator yamlOrchestratorRef
-		// The orchestrator settings for this node set
 		Volumes []yamlVolume
 		// The Hooks to be executed while provisioning the node set
 		Hooks struct {

@@ -16,7 +16,7 @@
             {"name":"Providers", "interface_map":{"name":"TProvider", "attribute":"Providers", "type":"Provider" }, "doc":"returns the environment providers"},
 
             {"name":"HasNodeSets", "custom": {"returns":"bool", "impl":"len(r.h.NodeSets) > 0"}, "doc":"returns true if the environment has nodes"},
-            {"name":"Nodesets", "interface_map":{"name":"TNodeSet", "attribute":"NodeSets", "type":"NodeSet" }, "doc":"returns the environment providers"},
+            {"name":"NodeSets", "interface_map":{"name":"TNodeSet", "attribute":"NodeSets", "type":"NodeSet" }, "doc":"returns the environment providers"},
             {"name":"HasStacks", "custom": {"returns":"bool", "impl":"len(r.h.Stacks) > 0"}, "doc":"returns true if the environment has stacks"},
             {"name":"Stacks", "interface_map":{"name":"TStack", "attribute":"Stacks", "type":"Stack" }, "doc":"returns the environment stacks"},
             {"name":"HasTasks", "custom": {"returns":"bool", "impl":"len(r.h.Tasks) > 0"}, "doc":"returns true if the environment has tasks"},
@@ -38,14 +38,6 @@
             {"name":"Parameters", "returns":"map[string]interface{}", "attribute":"Parameters" , "doc":"returns the orchestrator parameters"},
             {"name":"EnvVars",  "returns":"map[string]string", "attribute":"EnvVars", "doc":"returns the orchestrator environment variables"},
             {"name":"Component", "component":{"attribute":"", "type":"Component"}, "doc":"returns the orchestrator component"}
-        ]
-    },
-    {  
-        "name":"TOrchestratorRef",
-        "implemented_by":["OrchestratorRef"],
-        "doc":"is a read only reference on the orchestrator",
-        "methods":[  
-            {"name":"Orchestrator", "resolve":{"name":"TOrchestrator", "attribute":"", "type":"Orchestrator"}, "doc":"returns the orchestrator managing a node"}
         ]
     },
     {  
@@ -75,7 +67,6 @@
         "methods":[  
             {"name":"Name","attribute":"Name", "doc":"returns the name of the node set"},
             {"name":"Instances","returns":"int","attribute":"Instances", "doc":"returns the number of nodes to create for this node set"},
-            {"name":"Orchestrator", "interface":{"name":"TOrchestratorRef", "attribute":"Orchestrator", "type":"OrchestratorRef"}, "doc":"returns the reference on the orchestrator managing the node"},
             {"name":"Provider", "interface":{"name":"TProviderRef", "attribute":"Provider", "type":"ProviderRef"}, "doc":"returns the reference on the provider wherein the node should be deployed"},
             {"name":"HasHooks", "custom": {"returns":"bool", "impl":"r.h.Hooks.HasTasks()"}, "doc":"returns true if the node has hooks"},
             {"name":"Hooks", "interface":{"name":"TNodeHook", "attribute":"Hooks", "type":"NodeHook"}, "doc":"returns the node hooks"},

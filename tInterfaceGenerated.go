@@ -36,8 +36,8 @@ type TEnvironment interface {
 	Providers() map[string]TProvider
 	//HasNodeSets returns true if the environment has nodes
 	HasNodeSets() bool
-	//Nodesets returns the environment providers
-	Nodesets() map[string]TNodeSet
+	//NodeSets returns the environment providers
+	NodeSets() map[string]TNodeSet
 	//HasStacks returns true if the environment has stacks
 	HasStacks() bool
 	//Stacks returns the environment stacks
@@ -70,12 +70,6 @@ type TOrchestrator interface {
 	Component() (TComponent, error)
 }
 
-// TOrchestratorRef is a read only reference on the orchestrator
-type TOrchestratorRef interface {
-	//Orchestrator returns the orchestrator managing a node
-	Orchestrator() (TOrchestrator, error)
-}
-
 // TProvider is a read only provider
 type TProvider interface {
 	//Name returns the name of the provider
@@ -102,8 +96,6 @@ type TNodeSet interface {
 	Name() string
 	//Instances returns the number of nodes to create for this node set
 	Instances() int
-	//Orchestrator returns the reference on the orchestrator managing the node
-	Orchestrator() TOrchestratorRef
 	//Provider returns the reference on the provider wherein the node should be deployed
 	Provider() TProviderRef
 	//HasHooks returns true if the node has hooks

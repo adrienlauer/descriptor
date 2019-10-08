@@ -19,3 +19,9 @@ func (cc *RunTimeInfo) SetTarget(t Describable) {
 	cc.TargetType = t.DescType()
 	cc.TargetName = t.DescName()
 }
+
+//Clear any runtime info
+func (cc *RunTimeInfo) Clear() {
+	cc.TargetType = ""
+	cc.TargetName = ""
+}

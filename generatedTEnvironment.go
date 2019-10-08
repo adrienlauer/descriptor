@@ -88,8 +88,8 @@ func (r TEnvironmentOnEnvironmentHolder) HasNodeSets() bool {
 	return len(r.h.NodeSets) > 0
 }
 
-//Nodesets returns the environment providers
-func (r TEnvironmentOnEnvironmentHolder) Nodesets() map[string]TNodeSet {
+//NodeSets returns the environment providers
+func (r TEnvironmentOnEnvironmentHolder) NodeSets() map[string]TNodeSet {
 	result := make(map[string]TNodeSet)
 	for k, val := range r.h.NodeSets {
 		result[k] = CreateTNodeSetForNodeSet(val)
