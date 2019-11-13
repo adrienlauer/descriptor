@@ -196,7 +196,7 @@ stacks:
       stack2_env_key2: stack2_env_key2_value
      
     copies:  
-    - target: 
+    - target:
         once: true
         labels:
           label1: t1_val1   

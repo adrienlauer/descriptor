@@ -8,7 +8,7 @@ type (
 		// The orchestrator parameters
 		Parameters Parameters `yaml:",omitempty"`
 		// The orchestrator environment variables
-		EnvVars EnvVars  `yaml:",omitempty"`
+		EnvVars EnvVars `yaml:",omitempty"`
 	}
 )
 

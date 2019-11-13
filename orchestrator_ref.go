@@ -1,7 +1,6 @@
 package model
 
 import (
-	"fmt"
 	"gopkg.in/yaml.v2"
 )
 
@@ -16,14 +15,13 @@ type (
 )
 
 func (r OrchestratorRef) MarshalYAML() (interface{}, error) {
-	b, e :=  yaml.Marshal(&struct {
+	b, e := yaml.Marshal(&struct {
 		Parameters Parameters `yaml:",omitempty"`
-		EnvVars    EnvVars `yaml:",omitempty"`
+		EnvVars    EnvVars    `yaml:",omitempty"`
 	}{
-		Parameters: r.parameters, 
-		EnvVars: r.envVars,
+		Parameters: r.parameters,
+		EnvVars:    r.envVars,
 	})
-	fmt.Printf("--> GBE o returned '%s'", string(b))
 	return string(b), e
 }
 

@@ -13,19 +13,27 @@ type (
 		// The Name of the provider
 		Name string
 		// The provider parameters
-		Parameters Parameters  `yaml:",omitempty"`
+		Parameters Parameters `yaml:",omitempty"`
 		// The provider environment variables
-		EnvVars EnvVars  `yaml:",omitempty"` 
+		EnvVars EnvVars `yaml:",omitempty"`
 		// The provider proxy
-		Proxy Proxy  `yaml:",omitempty"`
+		Proxy Proxy `yaml:",omitempty"`
 	}
 
 	//Providers lists all the providers required to build the environemt
 	Providers map[string]Provider
 )
 
+func (r Provider) Params() Parameters {
+	return r.Parameters
+}
+
+//ProxyInfo returns the proxy info associated with the provider
+func (r Provider) ProxyInfo() Proxy {
+	return r.Proxy
+}
+
 //DescType returns the Describable type of the provider
-//  Hardcoded to : "Provider"
 func (r Provider) DescType() string {
 	return "Provider"
 }
